@@ -16,7 +16,14 @@ public class LogController {
 	public static boolean isLogged (){
 		UserService us = UserServiceFactory.getUserService();
 		com.google.appengine.api.users.User user = UserServiceFactory.getUserService().getCurrentUser();
-		return !(user==null);
+		if (user!=null){
+			String query = "select from " + User.class.getName()	+ " where correo == '"+user.getEmail()+"'";
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			List <User> users = (List<User>)pm.newQuery(query).execute();
+			pm.close();
+			return !users.isEmpty();
+		}
+		return false;
 	}
 	public static User getUser(){
 		String email="";

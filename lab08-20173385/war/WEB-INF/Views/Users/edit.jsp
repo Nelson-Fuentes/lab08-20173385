@@ -50,13 +50,15 @@
 			%>
 			<li class="google"><a href="/users/logout?url?=<%=url%>"
 				title="Cerrar Sesion"><img alt="Cerrar Sesión"
-					src="../img/logout.png"><font color="black">Cerrar Sesion</font></a></li>
+					src="../img/logout.png"><font color="black">Cerrar
+						Sesion</font></a></li>
 			<%
 				} else {
 			%>
 			<li class="google"><a href="/users/login?url?=<%=url%>"
 				title="Iniciar Sesion"><img alt="Iniciar Sesión"
-					src="../img/login.png"><font color="black">Iniciar Sesion</font></a></li>
+					src="../img/login.png"><font color="black">Iniciar
+						Sesion</font></a></li>
 			<li class="google"><a href="/users/register?url?=<%=url%>"
 				title="Registrarse"><img alt="Registrarse"
 					src="../img/register.png"><font color="black">Registrarse</font></a></li>
@@ -117,18 +119,26 @@
 			<label for="hombre">Masculino</label> <input type="radio"
 				name="gender" id="mujer" value="false" <%=mc%>> <label
 				for="mujer">Femenino</label>><br> <br> <label>Seleccione
-				su rol: </label> <select name="role">
+				su rol: </label>
+			<%
+				boolean editrol = ((Boolean) request.getAttribute("editrol")).booleanValue();
+				if (editrol) {
+			%>
+			<select name="role">
 				<%
 					for (Role rl : roles) {
-						String se = "";
-						if (rl.getId() == user.getIdRol()) {
-							se = "selected";
-						}
+							String se = "";
+							if (rl.getId() == user.getIdRol()) {
+								se = "selected";
+							}
 				%>
 				<option value="<%=rl.getId()%>" <%=se%>><%=rl.getName()%></option>
 				<%
 					}
+				} else {
 				%>
+				<p>*Usted no puede editar su rol debido  a que es el unico usuario</p>
+				<%} %>
 			</select> <input type="submit" value="Editar">
 		</form>
 	</div>

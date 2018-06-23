@@ -9,7 +9,7 @@
 	Date date = (Date) request.getAttribute("date");
 %>
 <%
-	List<Role> roles = (List<Role>) request.getAttribute("roles");
+	Role roles = (Role) request.getAttribute("role");
 	User log = (User) request.getAttribute("log");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -103,17 +103,9 @@
 			<br> <br> <br> <input type="radio" name="gender"
 				id="hombre" value="true" checked> <label for="hombre">Masculino</label>
 			<input type="radio" name="gender" id="mujer" value="false"> <label
-				for="mujer">Femenino</label><br> <label>Seleccione su
-				rol: </label> <select name="role">
-				<%
-					for (Role rl : roles) {
-						if (!(rl.getName().equalsIgnoreCase("Invitado"))){
-				%>
-				<option value="<%=rl.getId()%>"><%=rl.getName()%></option>
-				<%
-					}}
-				%>
-			</select> <br> <input type="submit" value="Registrar">
+				for="mujer">Femenino</label><br><br>
+			<input name ="role" type="hidden" value="<%=roles.getId() %>">
+			<br> <input type="submit" value="Registrar">
 		</form>
 	</div>
 </body>

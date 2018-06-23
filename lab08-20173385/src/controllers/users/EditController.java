@@ -30,7 +30,15 @@ public class EditController extends HttpServlet {
 			List<Role> roles = (List<Role>)pm.newQuery(query).execute();
 			req.setAttribute("roles", roles);
 			User user = pm.getObjectById(User.class, Long.parseLong(req.getParameter("id")));
+			
+			boolean editrol = true;
+			if (user.isAdministrador()){
+				query = "select from " + User.class.getName()+ " where idRol == " + user.getIdRol();
+				List<User> administrators = (List<User>)pm.newQuery(query).execute();
+				if (administrators.size()<=1) editrol=false;
+			}
 			pm.close();
+			req.setAttribute("editrol", editrol);
 			req.setAttribute("user", user);
 			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/Views/Users/edit.jsp");
 			rd.forward(req, resp);

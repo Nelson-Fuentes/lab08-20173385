@@ -37,9 +37,9 @@ public class RegisterController extends HttpServlet{
 				request.setAttribute("log", log);
 				LocalDateTime ldt = LocalDateTime.now(DateTimeZone.forID("America/Lima"));
 				PersistenceManager pm = PMF.get().getPersistenceManager();
-				String query = "select from " + Role.class.getName();
+				String query = "select from " + Role.class.getName() + " where name == 'Usuario Estandard'" ;
 				List<Role> roles = (List<Role>)pm.newQuery(query).execute();
-				request.setAttribute("roles", roles);
+				request.setAttribute("role", roles.get(0));
 				request.setAttribute("date", ldt.toDate());
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/Views/Users/register.jsp");
 				rd.forward(request, response);
