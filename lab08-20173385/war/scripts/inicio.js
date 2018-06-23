@@ -1,0 +1,37 @@
+$(document).ready(function (){
+	$('.circ').hide();
+	$('.circ01').hide();
+	$('#log').hide();
+	$('#content').hide();
+	$('#pres').show(500);
+	setTimeout(function(){
+		$('#lab').show(500);
+		$('#autor').show(500);
+		setTimeout(function(){
+			$('#o1').show(500);
+			$('#o2').show(500);
+			$('#o3').show(500);
+			setTimeout(function(){
+				$('#o1').hide(500);
+				$('#o2').hide(500);
+				$('#o3').hide(500);
+				setTimeout(function(){
+					$('#lab').hide(500);
+					$('#autor').hide(500);
+					$('#pres').hide(250);
+					setTimeout(function(){
+						$('body').css('background','black');
+						$('#log').show(300);
+						setTimeout(function(){
+							$('#log').hide(300);
+							setTimeout(function(){
+								$('#content').show();
+							//	$('body').css('background','white');
+							},300);
+						},300);
+					},500);
+				},150);
+			},2000);
+		},250);
+	},500);
+});

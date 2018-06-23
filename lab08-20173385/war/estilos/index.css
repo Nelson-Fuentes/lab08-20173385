@@ -1,0 +1,105 @@
+body {
+	padding: 0px;
+	margin: 0px;
+}
+.circ {
+	position: absolute;
+	border-radius: 50%;
+	font-size: 80px;
+	font-family: 'Francois One', sans-serif;
+   	text-align: center;
+}
+#pres {
+	height: 500px;
+	width: 500px;
+	font-size: 80px;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -250px;
+   	background: #5a98cc;
+   	color: white;
+}
+#presen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -110px;
+}
+.form {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+}
+#standar {
+	background: #f2f852;
+}
+#met {
+	background: #f85252;
+}
+#lab {
+	background: #f6fc5f;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	font-size: 40px;
+	color: white;
+	left: 25%;
+	top: 25%;
+	margin-top: -100px;
+	margin-left: -100px;
+}
+#autor {
+	background: #d94344;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	font-size: 35px;
+	color: white;
+	left: 25%;
+	top: 75%;
+	margin-top: -100px;
+	margin-left: -100px;
+}
+.circ01 {
+	border-radius: 100px;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+}
+#o1 {
+	background: #ff9333;
+	left: 13%;
+	margin-left: -50px;
+	top: 50%;
+	margin-top: -50px;
+}
+#o2 {
+	background: #54e233;
+	left: 75%;
+	margin-left: -50px;
+	top: 25%;
+	margin-top: -50px;
+}
+#o3 {
+	background: #e233bf;
+	left: 75%;
+	margin-left: -50px;
+	top: 75%;
+	margin-top: -50px;
+}
+#log {
+	align-content: center;
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
+#log img {
+	position: fixed;
+	height: 126px;
+	top: 50%;
+	margin-top: -63px;
+	left: 50%;
+	margin-left: -53px;
+}
